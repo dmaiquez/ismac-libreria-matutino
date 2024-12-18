@@ -44,16 +44,25 @@ public class FacturaDAOPrincipal {
 		factura2.setTotal(116.57);
 		factura2.setCliente(cliente2);
 		
-		facturaDAO.up(factura2);
+		//facturaDAO.up(factura2);
 		
+		// del
+		//facturaDAO.delete(86);
 		
-		
-		// findAll
-		List<Factura> facturas = facturaDAO.findAll();
-		
-		for (Factura item : facturas) {
-			System.out.println(item.toString());
+		// findOne
+		try {
+			Factura factura3 = facturaDAO.findOne(86);
+			System.out.println(factura3.toString());	
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
 		}
+		
+				
+		// findAll
+		facturaDAO.findAll().forEach(item -> {
+			System.out.println(item.toString());
+		});
 		
 		context.close();
 		
