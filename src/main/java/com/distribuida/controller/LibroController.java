@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,8 @@ import com.distribuida.entities.Autor;
 import com.distribuida.entities.Categoria;
 import com.distribuida.entities.Libro;
 
+
+@Controller
 @RequestMapping("/libros")
 public class LibroController {
 
@@ -61,25 +64,6 @@ public class LibroController {
 		else return "libros-del";
 	}
 	
-	
-	/**
-	 * @param idLibro
-	 * @param titulo
-	 * @param editorial
-	 * @param numPaginas
-	 * @param edicion
-	 * @param idioma
-	 * @param fechaPublicacion
-	 * @param descripcion
-	 * @param tipoPasta
-	 * @param iSBN
-	 * @param numEjemplares
-	 * @param portada
-	 * @param presentacion
-	 * @param precio
-	 * @param categoria
-	 * @param autor
-	 */
 	@PostMapping("/add")
 	public String add(@RequestParam("idLibro") @Nullable Integer idLibro
 			,@RequestParam("titulo") @Nullable String titulo

@@ -1,16 +1,29 @@
 package com.distribuida.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "categoria")
 public class Categoria {
 
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_categoria")
 	private int idCategoria;
+	@Column(name = "categoria")
 	private String categoria;
+	@Column(name = "descripcion")
 	private String descripcion;
 	
-	public Categoria() {}
+	public Categoria() { }
 
-	public Categoria(int idCategoria, String categoria, String descripcion) {
-	
+	public Categoria(int idCategoria, String categoria, String descripcion) {	
 		this.idCategoria = idCategoria;
 		this.categoria = categoria;
 		this.descripcion = descripcion;
@@ -40,8 +53,6 @@ public class Categoria {
 		this.descripcion = descripcion;
 	}
 
-	
-	
 	@Override
 	public String toString() {
 		return "Categoria [idCategoria=" + idCategoria + ", categoria=" + categoria + ", descripcion=" + descripcion
